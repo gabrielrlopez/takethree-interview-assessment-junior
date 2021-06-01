@@ -35,26 +35,31 @@ namespace TechnicalChallengeApp.BusinessLogic.Calculation
             {
                 case CalculationType.Add:
                     totalValue = left + right;
+                    apiResponse.Data.Total = totalValue;
                     break;
 
                 case CalculationType.Subtract:
                     totalValue = left - right;
+                    apiResponse.Data.Total = totalValue;
                     break;
 
                 case CalculationType.Multiply:
                     totalValue = left * right;
+                    apiResponse.Data.Total = totalValue;
                     break;
 
                 case CalculationType.Divide:
                     try
                     {
                         totalValue = left / right;
+                        apiResponse.Data.Total = totalValue;
                     }
                     catch (DivideByZeroException)
                     {
                         apiResponse.IsSuccess = false;
                         apiResponse.Message = "You cannot divide by zero";
                     }
+
                     break;
             }
 
